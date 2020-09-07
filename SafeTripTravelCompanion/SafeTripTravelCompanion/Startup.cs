@@ -12,6 +12,7 @@ using SafeTripTravelCompanion.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SafeTripTravelCompanion.Services;
 
 namespace SafeTripTravelCompanion
 {
@@ -32,6 +33,13 @@ namespace SafeTripTravelCompanion
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddHttpClient<ICovidTrackingService, ApiCovidTrackingService>(o =>
+            {
+                o.BaseAddress = new Uri("https://api.covidtracking.com/v1/states/");
+
+                //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
+                //o.DefaultRequestHeaders.Add("api-key", Configuration["Api:AccessKey"]);
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
