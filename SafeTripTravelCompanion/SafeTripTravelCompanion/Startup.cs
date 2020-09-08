@@ -40,6 +40,13 @@ namespace SafeTripTravelCompanion
                 //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
                 //o.DefaultRequestHeaders.Add("api-key", Configuration["Api:AccessKey"]);
             });
+            services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>(o =>
+            {
+                o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/locations/");
+
+                //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
+                //o.DefaultRequestHeaders.Add("api-key", Configuration["Api:AccessKey"]);
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

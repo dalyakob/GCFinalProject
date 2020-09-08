@@ -1,5 +1,5 @@
-﻿using SafeTripTravelCompanion.Models;
-using System;
+﻿using Newtonsoft.Json;
+using SafeTripTravelCompanion.Models.TripAdvisor;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -21,9 +21,16 @@ namespace SafeTripTravelCompanion.Services
             return await _client.GetFromJsonAsync<TripAdvisor>($" /{id}");
         }
 
-        public async  Task<IEnumerable<TripAdvisor>> GetAll()
+        public async  Task<IEnumerable<TripAdvisor>> GetAll(string search)
         {
-            return await _client.GetFromJsonAsync<IEnumerable<TripAdvisor>>("");
+            QueryStringConverter converter = new QueryStringConverter();
+            //if (converter.CanConvert(typeof(Int32)))
+            //    converter.ConvertStringToValue("123", typeof(Int32));
+            //int value = 321;
+            //string strValue = converter.ConvertValueToString(value, typeof(Int32));
+            //Console.WriteLine("the value = {0}, the string representation of the value = {1}", value, strValue);
+            var values = JsonConvert.DeserializeObject<Dictionary<string, string>>(search);
+            return await _client.GetFromJsonAsync<IEnumerable<TripAdvisor>>($"auto-complete?lang=en_US&units=km&query={values}");
         }
     }
 }
