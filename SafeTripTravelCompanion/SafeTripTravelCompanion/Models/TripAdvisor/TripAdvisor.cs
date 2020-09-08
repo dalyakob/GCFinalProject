@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace SafeTripTravelCompanion.Models
 {
-    public class Data
+    public class TripAdvisor
     {
-        public string state { get; set; }
-        public int population { get; set; }
+        public IEnumerable<PopulationData> data { get; set; }
     }
 }

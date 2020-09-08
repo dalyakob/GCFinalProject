@@ -7,6 +7,6 @@ namespace SafeTripTravelCompanion.Models.DataUSA
 {
     public class DataUSA
     {
-        public IEnumerable<Data> data { get; set; }
+        public IEnumerable<PopulationData> data { get; set; }
     }
 }

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SafeTripTravelCompanion.Models
+namespace SafeTripTravelCompanion.Models.TripAdvisor.Location
 {
-    public class TripAdvisor
+    public class DataLocation
     {
-
     }
 }

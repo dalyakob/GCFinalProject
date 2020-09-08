@@ -12,6 +12,6 @@ namespace SafeTripTravelCompanion.Services
         Task<double> GetCovidRate(string state);
         Task<int> FindPopulation(string state);
 
-        string ConvertStateFromAbv(string stateAbv);
+        string ConvertState(string stateAbv);
     }
 }

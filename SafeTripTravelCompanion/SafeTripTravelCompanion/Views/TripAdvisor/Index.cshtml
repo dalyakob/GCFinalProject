@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SafeTripTravelCompanion.Models.CovidTracking>
+﻿@model IEnumerable<SafeTripTravelCompanion.Models.TripAdvisor.Location.DataLocation>
 
 @{
     ViewData["Title"] = "Index";
@@ -8,10 +8,12 @@
 
 <div class="col-md-3 mb-3">
     <form asp-action="GetCovidRate">
-        <label for="validationServer04">State</label>
-        <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="State" required>
-        <div class="invalid-feedback">
-            Please provide a valid state.
+        <div class="form-group">
+            <label for="state" class="control-label">State</label>
+            <input class="form-control" id="state" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
         </div>
     </form>
 </div>

@@ -25,7 +25,7 @@ namespace SafeTripTravelCompanion.Controllers
         public async Task<ActionResult> GetCovidRate(string state)
         {
             ViewBag.State = state;
-            return View(await _covidTrackingService.GetCovidRate("AZ"));
+            return View(await _covidTrackingService.GetCovidRate(state));
         }
 
         // GET: TripAdvisorController1/Details/5
