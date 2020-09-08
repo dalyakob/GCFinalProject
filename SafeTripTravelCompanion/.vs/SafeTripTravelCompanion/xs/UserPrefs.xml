@@ -1,0 +1,49 @@
+﻿<Properties StartupConfiguration="{315D0F1D-4143-454A-97D4-43E37E8EA6DE}|SafeTripTravelCompanion">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SafeTripTravelCompanion/Startup.cs">
+    <Files>
+      <File FileName="SafeTripTravelCompanion/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/appsettings.json" />
+      <File FileName="SafeTripTravelCompanion/Controllers/TripAdvisorController.cs" />
+      <File FileName="SafeTripTravelCompanion/Models/ErrorViewModel.cs" Line="12" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/Location/DataLocation.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/TripAdvisor.cs" Line="6" Column="53" />
+      <File FileName="SafeTripTravelCompanion/Services/ApiTripAdvisorService.cs" Line="26" Column="27" />
+      <File FileName="SafeTripTravelCompanion/Services/ITripAdvisorService.cs" Line="15" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Services/ApiCovidTrackingService.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Models/CovidTracking/CovidTracking.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Startup.cs" Line="45" Column="88" />
+      <File FileName="SafeTripTravelCompanion/Views/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Program.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Services/ICovidTrackingService.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SafeTripTravelCompanion" expanded="True">
+            <Node name="SafeTripTravelCompanion" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="CovidTracking" expanded="True" />
+                <Node name="TripAdvisor" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+              </Node>
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.SafeTripTravelCompanion PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
