@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kylenedbal/Projects/GCFinalProject/SafeTripTravelCompanion/SafeTripTravelCompanion/SafeTripTravelCompanion.csproj": {}
+    "C:\\Users\\mak_a\\OneDrive\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj": {}
   },
   "projects": {
-    "/Users/kylenedbal/Projects/GCFinalProject/SafeTripTravelCompanion/SafeTripTravelCompanion/SafeTripTravelCompanion.csproj": {
+    "C:\\Users\\mak_a\\OneDrive\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kylenedbal/Projects/GCFinalProject/SafeTripTravelCompanion/SafeTripTravelCompanion/SafeTripTravelCompanion.csproj",
+        "projectUniqueName": "C:\\Users\\mak_a\\OneDrive\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
         "projectName": "SafeTripTravelCompanion",
-        "projectPath": "/Users/kylenedbal/Projects/GCFinalProject/SafeTripTravelCompanion/SafeTripTravelCompanion/SafeTripTravelCompanion.csproj",
-        "packagesPath": "/Users/kylenedbal/.nuget/packages/",
-        "outputPath": "/Users/kylenedbal/Projects/GCFinalProject/SafeTripTravelCompanion/SafeTripTravelCompanion/obj/",
+        "projectPath": "C:\\Users\\mak_a\\OneDrive\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
+        "packagesPath": "C:\\Users\\mak_a\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mak_a\\OneDrive\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/kylenedbal/.config/NuGet/NuGet.Config"
+          "C:\\Users\\mak_a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -83,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

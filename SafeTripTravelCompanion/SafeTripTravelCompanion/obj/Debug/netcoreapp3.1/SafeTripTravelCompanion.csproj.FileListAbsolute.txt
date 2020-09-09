@@ -168,3 +168,13 @@ C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCo
 C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Views\TripAdvisor\Index.cshtml.g.cs
 C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Views\TripAdvisor\GetCovidRate.cshtml.g.cs
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.csprojAssemblyReference.cache
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.AssemblyInfoInputs.cache
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.AssemblyInfo.cs
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.csproj.CoreCompileInputs.cache
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.RazorAssemblyInfo.cache
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.RazorAssemblyInfo.cs
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.dll
+C:\Users\mak_a\OneDrive\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\SafeTripTravelCompanion.pdb

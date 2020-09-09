@@ -8,33 +8,39 @@ using SafeTripTravelCompanion.Services;
 
 namespace SafeTripTravelCompanion.Controllers
 {
-    public class TripAdvisorController : Controller
+    public class CovidTrackingController : Controller
     {
-        private readonly ITripAdvisorService _tripAdvisorService;
+        private readonly ICovidTrackingService _covidTrackingService;
 
-        public TripAdvisorController(ITripAdvisorService tripAdvisorService)
+        public CovidTrackingController(ICovidTrackingService covidTrackingService)
         {
-            _tripAdvisorService = tripAdvisorService;
+            _covidTrackingService = covidTrackingService;
         }
-        // GET: TripAdvisorController1
+        // GET: CovidTrackingController
         public async Task<ActionResult> Index()
         {
-            return View(_tripAdvisorService.GetAll("London"));
+            return View(await _covidTrackingService.GetState("MI"));
         }
 
-        // GET: TripAdvisorController1/Details/5
+        public async Task<ActionResult> GetCovidRate(string state)
+        {
+            ViewBag.State = state;
+            return View(await _covidTrackingService.GetCovidRate(state));
+        }
+
+        // GET: CovidTrackingController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: TripAdvisorController1/Create
+        // GET: CovidTrackingController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TripAdvisorController1/Create
+        // POST: CovidTrackingController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -49,13 +55,13 @@ namespace SafeTripTravelCompanion.Controllers
             }
         }
 
-        // GET: TripAdvisorController1/Edit/5
+        // GET: CovidTrackingController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: TripAdvisorController1/Edit/5
+        // POST: CovidTrackingController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -70,13 +76,13 @@ namespace SafeTripTravelCompanion.Controllers
             }
         }
 
-        // GET: TripAdvisorController1/Delete/5
+        // GET: CovidTrackingController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: TripAdvisorController1/Delete/5
+        // POST: CovidTrackingController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
