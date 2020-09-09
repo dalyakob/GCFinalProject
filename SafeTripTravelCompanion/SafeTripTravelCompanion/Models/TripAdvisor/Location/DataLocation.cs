@@ -8,7 +8,6 @@ namespace SafeTripTravelCompanion.Models.TripAdvisor.Location
 {
     public class DataLocation
     {
-        [JsonPropertyName("result_object")]
-        public ThingsToDo resultobject { get; set; }
+        public ThingsToDo result_object { get; set; }
     }
 }

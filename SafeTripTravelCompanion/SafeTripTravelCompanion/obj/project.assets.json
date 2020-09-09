@@ -8905,19 +8905,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mak_a\\.nuget\\packages\\": {}
+    "C:\\Users\\halo3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mak_a\\OneDrive\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
+      "projectUniqueName": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
       "projectName": "SafeTripTravelCompanion",
-      "projectPath": "C:\\Users\\mak_a\\OneDrive\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
-      "packagesPath": "C:\\Users\\mak_a\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mak_a\\OneDrive\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\obj\\",
+      "projectPath": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
+      "packagesPath": "C:\\Users\\halo3\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mak_a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\halo3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8988,7 +8988,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

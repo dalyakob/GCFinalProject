@@ -8,7 +8,7 @@ namespace SafeTripTravelCompanion.Services
 {
     public interface ITripAdvisorService
     {
-        Task<IEnumerable<TripAdvisor>> GetAll(string search);
+        Task<TripAdvisor> GetLocation(string search);
         Task<TripAdvisor> Get(int id);
     }
 }
