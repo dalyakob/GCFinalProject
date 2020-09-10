@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SafeTripTravelCompanion.Models.DataBase.Profiles;
 
 namespace SafeTripTravelCompanion.Data
 {
@@ -13,6 +14,6 @@ namespace SafeTripTravelCompanion.Data
         {
 
         }
-        public DbSet<>
+        public DbSet<Profile> Profiles  { get; set; }
     }
 }
