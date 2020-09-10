@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SafeTripTravelCompanion.Models.TripAdvisor.Location.DataLocation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Things To Do</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Location ID: 
+            </th>
+            <th>
+                Name: 
+            </th>
+            <th>
+                Latitude: 
+            </th>
+            <th>
+                Longitude:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var result in Model)
+{
+    var item = result.result_object;
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.location_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.longitude)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
