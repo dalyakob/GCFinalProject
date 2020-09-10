@@ -19,7 +19,8 @@ namespace SafeTripTravelCompanion.Controllers
         // GET: TripAdvisorController1
         public async Task<ActionResult> Index()
         {
-            return View(_tripAdvisorService.GetAll("London"));
+            var model = await _tripAdvisorService.GetLocation("London");
+            return View(model.data);
         }
 
         // GET: TripAdvisorController1/Details/5

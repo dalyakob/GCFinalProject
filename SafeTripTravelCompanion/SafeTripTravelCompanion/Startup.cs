@@ -36,16 +36,13 @@ namespace SafeTripTravelCompanion
             services.AddHttpClient<ICovidTrackingService, ApiCovidTrackingService>(o =>
             {
                 o.BaseAddress = new Uri("https://api.covidtracking.com/v1/states/");
-
                 //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
-                //o.DefaultRequestHeaders.Add("api-key", Configuration["Api:AccessKey"]);
             });
             services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>(o =>
             {
                 o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/locations/");
-
+                o.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration["Api:AccessKey"]);
                 //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
-                //o.DefaultRequestHeaders.Add("api-key", Configuration["Api:AccessKey"]);
             });
             services.AddControllersWithViews();
             services.AddRazorPages();
