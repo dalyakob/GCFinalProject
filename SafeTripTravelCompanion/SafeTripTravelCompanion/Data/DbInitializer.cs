@@ -10,11 +10,11 @@ namespace SafeTripTravelCompanion.Data
         public static void Initialize(ApplicationDbContext context)
         {
             context.Database.EnsureCreated();
-            if (!context.Profiles.Any())
-            {
-                context.SaveChanges();
+            //if (!context.Profiles.Any())
+            //{
+            //    context.SaveChanges();
 
-            }
+            //}
         }
     }
 }
