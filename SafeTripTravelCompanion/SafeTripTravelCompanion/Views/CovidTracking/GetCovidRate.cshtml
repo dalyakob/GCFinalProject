@@ -7,11 +7,11 @@
 @model double
 
 <div class="display-1" >
-    Covid Rate In @ViewBag.State
+    Covid Rate in <strong>@ViewBag.State</strong>
 </div>
 
 <hr/>
 
 <div class="display-4">
-    The covid rate in @ViewBag.State is @Model% 
+    The covid rate in @ViewBag.State is @Model.ToString("P") 
 </div>
