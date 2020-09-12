@@ -11,22 +11,21 @@ namespace SafeTripTravelCompanion.Services
 {
     public class ApiCovidTrackingService : ICovidTrackingService
     {
-        private readonly IHttpClientFactory _clientFactory;
+        private readonly HttpClient _client;
 
-        public ApiCovidTrackingService(IHttpClientFactory clientFactory)
+        public ApiCovidTrackingService(HttpClient client)
         {
-            _clientFactory = clientFactory;
+            _client = client;
         }
 
         public async Task<double>  GetCovidRate(string state)
         {
-            var client = _clientFactory.CreateClient("CovidTracking");
             state = state.ToUpper().Trim();
 
             if (state.Length > 2)
                 state = ConvertState(state);
 
-            var statePositive = await client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
+            var statePositive = await _client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
 
             double population = await FindPopulation(state);
 
@@ -35,7 +34,6 @@ namespace SafeTripTravelCompanion.Services
 
         public async Task<int> FindPopulation(string state)
         {
-            var client = _clientFactory.CreateClient("Population");
 
             state = state.ToUpper().Trim();
 
@@ -43,7 +41,7 @@ namespace SafeTripTravelCompanion.Services
                 state = ConvertState(state);
 
             //brings a list of state populations
-            var UsPopulation = await client.GetFromJsonAsync<DataUSA>("data?drilldowns=State&measures=Population&year=latest");
+            var UsPopulation = await _client.GetFromJsonAsync<DataUSA>("https://datausa.io/api/data?drilldowns=State&measures=Population&year=latest");
             
             foreach (var item in UsPopulation.data)
             {
