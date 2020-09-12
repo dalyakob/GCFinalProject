@@ -17,15 +17,16 @@ namespace SafeTripTravelCompanion.Controllers
             _tripAdvisorService = tripAdvisorService;
         }
         // GET: TripAdvisorController1
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string search)
         {
-            var model = await _tripAdvisorService.GetLocation("London");
+            var model = await _tripAdvisorService.GetLocation(search);
             return View(model.data);
         }
 
         // GET: TripAdvisorController1/Details/5
         public ActionResult Details(int id)
         {
+
             return View();
         }
 

@@ -1,4 +1,4 @@
-﻿namespace SafeTripTravelCompanion.Models.TripAdvisor.Location
+﻿namespace SafeTripTravelCompanion.Models.TripAdvisor.ResultObject
 {
     public class OriginalImage
     {
