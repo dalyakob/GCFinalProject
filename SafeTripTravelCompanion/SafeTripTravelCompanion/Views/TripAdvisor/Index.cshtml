@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SafeTripTravelCompanion.Models.TripAdvisor.ResultObject.DataLocation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Things To Do</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                COVID Danger Rate:
+            </th>
+            <th>
+                Name: 
+            </th>
+            <th>
+                Location: 
+            </th>
+            <th>
+                Photo:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model)
+        {
+            if (result.result_type == "things_to_do" && result.result_object.address_obj.country == "United States")
+            {
+                var item = result.result_object;
+
+            <tr>
+
+                <td>
+                    @Html.ActionLink("Check Rate", "GetCovidRate", "CovidTracking", new {state = item.address_obj.state })
+                </td>
+                <td>
+                    @Html.ActionLink(item.name, "Details", new { id = item.location_id})
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @{
+                        var img = item.photo.images.original;
+                    }
+                    <img src=@img.url height="300" />
+                </td>
+
+            </tr>
+            }
+        }
+    </tbody>
+</table>
