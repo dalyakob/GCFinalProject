@@ -8,7 +8,6 @@ namespace SafeTripTravelCompanion.Services
 {
     public interface ICovidTrackingService
     {
-        Task<IEnumerable<CovidTracking>> GetState(string state);
         Task<double> GetCovidRate(string state);
         Task<int> FindPopulation(string state);
 

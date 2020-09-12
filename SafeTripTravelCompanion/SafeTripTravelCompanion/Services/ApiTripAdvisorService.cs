@@ -26,7 +26,7 @@ namespace SafeTripTravelCompanion.Services
         public async  Task<TripAdvisor> GetLocation(string search)
         {
             var UrlSearch = HttpUtility.UrlEncode(search);
-            return await _client.GetFromJsonAsync<TripAdvisor>($"auto-complete?lang=en_US&units=km&query=London");
+            return await _client.GetFromJsonAsync<TripAdvisor>($"https://tripadvisor1.p.rapidapi.com/locations/search?location_id=1&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query={UrlSearch}");
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\halo3\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\halo3\\.nuget\\packages"
+      "/Users/kylenedbal/.dotnet/store/|arch|/|tfm|",
+      "/Users/kylenedbal/.nuget/packages"
     ]
   }
 }
