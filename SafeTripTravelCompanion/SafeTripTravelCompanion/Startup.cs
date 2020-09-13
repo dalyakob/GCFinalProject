@@ -35,8 +35,10 @@ namespace SafeTripTravelCompanion
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddTransient<ICovidTrackingService, ApiCovidTrackingService>();
 
-             services.AddHttpClient<ICovidTrackingService, ApiCovidTrackingService>( o =>
+
+             services.AddHttpClient("CovidTracking", o =>
             {
                 o.BaseAddress = new Uri("https://api.covidtracking.com/v1/states/");
             });
