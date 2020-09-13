@@ -24,10 +24,10 @@ namespace SafeTripTravelCompanion.Controllers
         }
 
         // GET: TripAdvisorController1/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-
-            return View();
+            var model = await _tripAdvisorService.Get(id);
+            return View(model.data.ElementAt(0));
         }
 
         // GET: TripAdvisorController1/Create

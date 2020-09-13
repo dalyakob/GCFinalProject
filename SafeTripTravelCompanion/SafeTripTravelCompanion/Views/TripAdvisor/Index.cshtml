@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SafeTripTravelCompanion.Models.TripAdvisor.ResultObject.DataLocation>
+﻿@model IEnumerable<SafeTripTravelCompanion.Models.TripAdvisor.Location.DataLocation>
 
 @{
     ViewData["Title"] = "Index";
@@ -46,9 +46,9 @@
                 </td>
                 <td>
                     @{
-                        var img = item.photo.images.original;
+                        var img = item.photo.images.thumbnail;
                     }
-                    <img src=@img.url height="300" />
+                    <img src=@img.url height=@img.height width=@img.width />
                 </td>
 
             </tr>

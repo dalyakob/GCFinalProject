@@ -1,12 +1,12 @@
-﻿using SafeTripTravelCompanion.Models.TripAdvisor.ResultObject;
+﻿using SafeTripTravelCompanion.Models.TripAdvisor.Location;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SafeTripTravelCompanion.Models.TripAdvisor
+namespace SafeTripTravelCompanion.Models.TripAdvisor.Location
 {
-    public class TripAdvisor
+    public class RootLocation
     {
         public IEnumerable<DataLocation> data { get; set; }
     }

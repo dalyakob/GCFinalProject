@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace SafeTripTravelCompanion.Models.TripAdvisor.ResultObject
+namespace SafeTripTravelCompanion.Models.TripAdvisor.Location
 {
     public class DataLocation
     {

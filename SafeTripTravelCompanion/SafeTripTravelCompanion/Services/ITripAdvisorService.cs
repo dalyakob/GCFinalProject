@@ -1,4 +1,5 @@
-﻿using SafeTripTravelCompanion.Models.TripAdvisor;
+﻿using SafeTripTravelCompanion.Models.TripAdvisor.Attraction;
+using SafeTripTravelCompanion.Models.TripAdvisor.Location;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace SafeTripTravelCompanion.Services
 {
     public interface ITripAdvisorService
     {
-        Task<TripAdvisor> GetLocation(string search);
-        Task<TripAdvisor> Get(int id);
+        Task<RootLocation> GetLocation(string search);
+        Task<RootAttraction> Get(int id);
     }
 }

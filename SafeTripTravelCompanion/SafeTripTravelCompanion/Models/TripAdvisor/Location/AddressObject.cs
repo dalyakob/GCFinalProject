@@ -1,5 +1,5 @@
 ﻿using System;
-namespace SafeTripTravelCompanion.Models.TripAdvisor.ResultObject
+namespace SafeTripTravelCompanion.Models.TripAdvisor.Location
 {
     public class AddressObject
     { 

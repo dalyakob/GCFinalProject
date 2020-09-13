@@ -1,6 +1,7 @@
-﻿namespace SafeTripTravelCompanion.Models.TripAdvisor.ResultObject
+﻿using System;
+namespace SafeTripTravelCompanion.Models.TripAdvisor.Location
 {
-    public class OriginalImage
+    public class ThumbnailImage
     {
         public string width { get; set; }
         public string height { get; set; }

@@ -1,4 +1,5 @@
-﻿namespace SafeTripTravelCompanion.Models.TripAdvisor.ResultObject
+﻿using System;
+namespace SafeTripTravelCompanion.Models.TripAdvisor.Attraction
 {
     public class Images
     {
