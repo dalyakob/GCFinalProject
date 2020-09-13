@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.WebUtilities;
-using Newtonsoft.Json;
-using SafeTripTravelCompanion.Models.TripAdvisor;
-using System.Collections.Generic;
-using System.Linq;
+﻿using SafeTripTravelCompanion.Models.TripAdvisor.Location;
+using SafeTripTravelCompanion.Models.TripAdvisor.Attraction;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -18,15 +15,15 @@ namespace SafeTripTravelCompanion.Services
         {
             _client = client;
         }
-        public async Task<TripAdvisor> Get(int id)
+        public async Task<RootAttraction> Get(int id)
         {
-            return await _client.GetFromJsonAsync<TripAdvisor>($" /{id}");
+            return await _client.GetFromJsonAsync<RootAttraction>($"attractions/list?lang=en_US&currency=USD&sort=recommended&lunit=km&location_id={id}");
         }
 
-        public async  Task<TripAdvisor> GetLocation(string search)
+        public async  Task<RootLocation> GetLocation(string search)
         {
             var UrlSearch = HttpUtility.UrlEncode(search);
-            return await _client.GetFromJsonAsync<TripAdvisor>($"auto-complete?lang=en_US&units=km&query=London");
+            return await _client.GetFromJsonAsync<RootLocation>($"locations/search?location_id=1&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query={UrlSearch}");
         }
     }
 }

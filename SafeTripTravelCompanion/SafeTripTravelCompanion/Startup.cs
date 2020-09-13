@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SafeTripTravelCompanion.Services;
+using System.Net.Http.Headers;
 
 namespace SafeTripTravelCompanion
 {
@@ -33,19 +34,65 @@ namespace SafeTripTravelCompanion
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddHttpClient<ICovidTrackingService, ApiCovidTrackingService>(o =>
+
+            services.AddTransient<ICovidTrackingService, ApiCovidTrackingService>();
+
+
+             services.AddHttpClient("CovidTracking", o =>
             {
                 o.BaseAddress = new Uri("https://api.covidtracking.com/v1/states/");
-                //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
             });
+
+
             services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>(o =>
             {
-                o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/locations/");
+                o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/");
                 o.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration["Api:AccessKey"]);
                 //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
             });
+
+            //services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>("TA-Attractions", o =>
+            //{
+            //    o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/attraction/list/");
+            //    o.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration["Api:AccessKey"]);
+            //    //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
+            //});
+
+
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
+            });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = "/Identity/Account/Login";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.SlidingExpiration = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

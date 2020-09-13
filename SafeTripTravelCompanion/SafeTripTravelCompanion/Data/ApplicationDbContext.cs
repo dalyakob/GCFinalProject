@@ -13,6 +13,5 @@ namespace SafeTripTravelCompanion.Data
         {
 
         }
-        public DbSet<>
     }
 }

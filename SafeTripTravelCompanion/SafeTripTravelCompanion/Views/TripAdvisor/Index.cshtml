@@ -11,40 +11,48 @@
     <thead>
         <tr>
             <th>
-                Location ID: 
+                COVID Danger Rate:
             </th>
             <th>
                 Name: 
             </th>
             <th>
-                Latitude: 
+                Location: 
             </th>
             <th>
-                Longitude:
+                Photo:
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var result in Model)
-{
-    var item = result.result_object;
+        @foreach (var result in Model)
+        {
+            if (result.result_type == "things_to_do" && result.result_object.address_obj.country == "United States")
+            {
+                var item = result.result_object;
 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.location_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.latitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.longitude)
-            </td>
+            <tr>
 
-        </tr>
-}
+                <td>
+                    @Html.ActionLink("Check Rate", "GetCovidRate", "CovidTracking", new {state = item.address_obj.state })
+                </td>
+                <td>
+                    @Html.ActionLink(item.name, "Details", new { id = item.location_id})
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @{
+                        var img = item.photo.images.thumbnail;
+                    }
+                    <img src=@img.url height=@img.height width=@img.width />
+                </td>
+
+            </tr>
+            }
+        }
     </tbody>
 </table>

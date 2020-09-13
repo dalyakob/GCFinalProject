@@ -11,38 +11,42 @@ namespace SafeTripTravelCompanion.Services
 {
     public class ApiCovidTrackingService : ICovidTrackingService
     {
-        private readonly HttpClient _client;
+        private readonly IHttpClientFactory _clientFactory;
 
-        public ApiCovidTrackingService(HttpClient client)
+        public ApiCovidTrackingService(IHttpClientFactory clientFactory)
         {
-            _client = client;
+            _clientFactory = clientFactory;
         }
-        public async Task<IEnumerable<CovidTracking>> GetState(string state)
-        {
-            return await _client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
-        }
+
         public async Task<double>  GetCovidRate(string state)
         {
-            var statePositive = await _client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
+            var client = _clientFactory.CreateClient("CovidTracking");
+            state = state.ToUpper().Trim();
+
+            if (state.Length > 2)
+                state = ConvertState(state);
+
+            var statePositive = await client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
 
             double population = await FindPopulation(state);
 
-            return (statePositive.ElementAt(0).positive / population) *100; // returning percentage of covid infection 
+            return (statePositive.ElementAt(0).positive / population); // returning percentage of covid infection 
         }
 
         public async Task<int> FindPopulation(string state)
         {
+            var client = _clientFactory.CreateClient("Population");
             state = state.ToUpper().Trim();
 
-            if(state.Length <= 2)
+            if (state.Length == 2)
                 state = ConvertState(state);
 
             //brings a list of state populations
-            var UsPopulation = await _client.GetFromJsonAsync<DataUSA>("https://datausa.io/api/data?drilldowns=State&measures=Population&year=latest");
+            var UsPopulation = await client.GetFromJsonAsync<DataUSA>("https://datausa.io/api/data?drilldowns=State&measures=Population&year=latest");
             
             foreach (var item in UsPopulation.data)
             {
-                if (item.state.ToUpper() == state)
+                if (item.state == state)
                 {
                     return item.population;
                 }

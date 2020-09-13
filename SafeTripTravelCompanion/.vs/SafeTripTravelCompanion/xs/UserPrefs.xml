@@ -1,38 +1,64 @@
 ﻿<Properties StartupConfiguration="{315D0F1D-4143-454A-97D4-43E37E8EA6DE}|SafeTripTravelCompanion">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SafeTripTravelCompanion/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SafeTripTravelCompanion/Views/TripAdvisor/Index.cshtml">
     <Files>
       <File FileName="SafeTripTravelCompanion/Controllers/HomeController.cs" Line="1" Column="1" />
       <File FileName="SafeTripTravelCompanion/appsettings.json" />
-      <File FileName="SafeTripTravelCompanion/Controllers/TripAdvisorController.cs" />
-      <File FileName="SafeTripTravelCompanion/Models/ErrorViewModel.cs" Line="12" Column="1" />
-      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/Location/DataLocation.cs" Line="1" Column="1" />
-      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/TripAdvisor.cs" Line="6" Column="53" />
-      <File FileName="SafeTripTravelCompanion/Services/ApiTripAdvisorService.cs" Line="26" Column="27" />
-      <File FileName="SafeTripTravelCompanion/Services/ITripAdvisorService.cs" Line="15" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Controllers/TripAdvisorController.cs" Line="30" Column="48" />
+      <File FileName="SafeTripTravelCompanion/Models/ErrorViewModel.cs" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/TripAdvisor.cs" Line="10" Column="6" />
+      <File FileName="SafeTripTravelCompanion/Services/ApiTripAdvisorService.cs" Line="26" Column="62" />
+      <File FileName="SafeTripTravelCompanion/Services/ITripAdvisorService.cs" Line="13" Column="21" />
       <File FileName="SafeTripTravelCompanion/Services/ApiCovidTrackingService.cs" Line="1" Column="1" />
       <File FileName="SafeTripTravelCompanion/Models/CovidTracking/CovidTracking.cs" Line="1" Column="1" />
-      <File FileName="SafeTripTravelCompanion/Startup.cs" Line="45" Column="88" />
-      <File FileName="SafeTripTravelCompanion/Views/_ViewImports.cshtml" Line="1" Column="1" />
-      <File FileName="SafeTripTravelCompanion/Program.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Startup.cs" Line="47" Column="78" />
+      <File FileName="SafeTripTravelCompanion/Views/_ViewImports.cshtml" />
+      <File FileName="SafeTripTravelCompanion/Program.cs" />
       <File FileName="SafeTripTravelCompanion/Services/ICovidTrackingService.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/CovidTracking/GetCovidRate.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/TripAdvisor/Index.cshtml" Line="1" Column="72" />
+      <File FileName="SafeTripTravelCompanion/Data/ApplicationDbContext.cs" />
+      <File FileName="SafeTripTravelCompanion/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/wwwroot/css/site.css" />
+      <File FileName="SafeTripTravelCompanion/Controllers/CovidTrackingController.cs" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/DataLocation.cs" Line="7" Column="62" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/ResultObject/AddressObject.cs" Line="2" Column="62" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/ResultObject/Images.cs" Line="1" Column="62" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/ResultObject/Photo.cs" Line="1" Column="62" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/ResultObject/OriginalImage.cs" Line="1" Column="62" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/ResultObject/ResultObject.cs" Line="1" Column="62" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/LocationDetails/Photo.cs" Line="2" Column="64" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/LocationDetails/Images.cs" Line="2" Column="64" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/LocationDetails/OriginalImage.cs" Line="2" Column="64" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/ResultObject/ThumbnailImage.cs" Line="2" Column="62" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/LocationDetails/AddressObject.cs" Line="2" Column="64" />
+      <File FileName="SafeTripTravelCompanion/Views/TripAdvisor/Details.cshtml" Line="2" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/LocationDetails/LocationDetails.cs" Line="2" Column="64" />
+      <File FileName="SafeTripTravelCompanion/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Shared/_LoginPartial.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Shared/_ValidationScriptsPartial.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/LocationDetails/Data.cs" Line="7" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SafeTripTravelCompanion" expanded="True">
             <Node name="SafeTripTravelCompanion" expanded="True">
-              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="CovidTracking" expanded="True" />
-                <Node name="TripAdvisor" expanded="True" />
+                <Node name="TripAdvisor" expanded="True">
+                  <Node name="Attraction" expanded="True" />
+                  <Node name="Location" expanded="True" />
+                </Node>
               </Node>
               <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="CovidTracking" expanded="True" />
                 <Node name="Home" expanded="True" />
+                <Node name="TripAdvisor" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
               </Node>
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
