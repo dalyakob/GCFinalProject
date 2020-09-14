@@ -19,7 +19,7 @@ namespace SafeTripTravelCompanion.Controllers
         // GET: TripAdvisorController1
         public async Task<ActionResult> Index(string search)
         {
-            ViewBag.UserInput = search;
+            ViewBag.Search = search;
             var model = await _tripAdvisorService.GetLocation(search);
             return View(model.data);
         }
