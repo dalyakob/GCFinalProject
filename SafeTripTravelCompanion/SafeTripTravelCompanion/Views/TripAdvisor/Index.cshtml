@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Things To Do</h1>
+<h1>Attractions for "@ViewBag.Search"</h1>
 
 
 <table class="table">
@@ -22,7 +22,13 @@
             <th>
                 Photo:
             </th>
-            <th></th>
+            @if(true)
+            {
+                <th>
+                    Add:
+                </th>
+            }
+            
         </tr>
     </thead>
     <tbody>
@@ -50,7 +56,9 @@
                     }
                     <img src=@img.url height=@img.height width=@img.width />
                 </td>
-
+                <td>
+                    @Html.ActionLink("Add", "Index", "BucketList",new { id = item.location_id })
+                </td>
             </tr>
             }
         }
