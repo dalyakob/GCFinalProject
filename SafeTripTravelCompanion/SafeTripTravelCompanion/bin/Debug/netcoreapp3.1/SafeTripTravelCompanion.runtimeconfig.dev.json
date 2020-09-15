@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\halo3\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\halo3\\.nuget\\packages"
+      "C:\\Users\\christopherke\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\christopherke\\.nuget\\packages"
     ]
   }
 }

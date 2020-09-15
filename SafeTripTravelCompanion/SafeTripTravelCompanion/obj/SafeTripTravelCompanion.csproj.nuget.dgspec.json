@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj": {}
+    "C:\\Users\\christopherke\\source\\repos\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj": {
+    "C:\\Users\\christopherke\\source\\repos\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
+        "projectUniqueName": "C:\\Users\\christopherke\\source\\repos\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
         "projectName": "SafeTripTravelCompanion",
-        "projectPath": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
-        "packagesPath": "C:\\Users\\halo3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\obj\\",
+        "projectPath": "C:\\Users\\christopherke\\source\\repos\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
+        "packagesPath": "C:\\Users\\christopherke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\christopherke\\source\\repos\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\halo3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\christopherke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,6 +83,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -91,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
