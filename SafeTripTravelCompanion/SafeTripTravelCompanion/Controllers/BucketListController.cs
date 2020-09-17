@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafeTripTravelCompanion.Data;
 using SafeTripTravelCompanion.Models.DataBase;
+using SafeTripTravelCompanion.Models.TripAdvisor.Attraction;
+using SafeTripTravelCompanion.Models.TripAdvisor.Location;
 using SafeTripTravelCompanion.Services;
 
 namespace SafeTripTravelCompanion.Controllers
@@ -27,7 +29,10 @@ namespace SafeTripTravelCompanion.Controllers
         // GET: BucketLists
         public async Task<IActionResult> Index()
         {
-            var model = await _tripAdvisorService.GetBucketList(await _context.BucketLists.ToListAsync());
+            var bucketList = await _context.BucketLists.ToListAsync();
+
+            var model = await _tripAdvisorService.GetBucketList(bucketList);
+
             return View(model);
         }
 
@@ -51,8 +56,6 @@ namespace SafeTripTravelCompanion.Controllers
         }
 
         // POST: BucketLists/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string id)
         {
             var bucketList = new BucketList { LocationID = id };
@@ -141,7 +144,7 @@ namespace SafeTripTravelCompanion.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var bucketList = await _context.BucketLists.FindAsync(id);
+            var bucketList = await _context.BucketLists.FirstOrDefaultAsync(m => m.LocationID == id);
             _context.BucketLists.Remove(bucketList);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

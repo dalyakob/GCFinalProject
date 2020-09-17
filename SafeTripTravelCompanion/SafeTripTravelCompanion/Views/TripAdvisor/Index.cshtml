@@ -58,10 +58,7 @@
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <td>
-                        <form asp-controller="BucketList" asp-action="Create" method="post">
-                            <a  asp-route-id="@item.location_id">Add</a>
-                        </form>
-                        
+                        <a  asp-controller="BucketList" asp-action="Create" asp-route-id="@item.location_id">Add</a>
                     </td>
                 }
             </tr>

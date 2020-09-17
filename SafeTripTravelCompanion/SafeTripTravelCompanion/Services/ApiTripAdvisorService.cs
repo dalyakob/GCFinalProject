@@ -28,7 +28,7 @@ namespace SafeTripTravelCompanion.Services
             var bucketList = new List<LocationDetails>();
             foreach (var item in bucketListIds) 
             {
-                var listItem = await _client.GetFromJsonAsync<RootAttraction>($"attractions/list?lang=en_US&currency=USD&sort=recommended&lunit=km&location_id={item.BucketListId}");
+                var listItem = await _client.GetFromJsonAsync<RootAttraction>($"attractions/list?lang=en_US&currency=USD&sort=recommended&lunit=km&location_id={item.LocationID}");
                 bucketList.Add(listItem.data.ElementAt(0));
             }
             return bucketList;
