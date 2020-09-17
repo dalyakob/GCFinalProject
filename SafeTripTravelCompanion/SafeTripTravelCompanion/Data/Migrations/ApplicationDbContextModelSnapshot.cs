@@ -221,8 +221,14 @@ namespace SafeTripTravelCompanion.Data.Migrations
 
             modelBuilder.Entity("SafeTripTravelCompanion.Models.DataBase.BucketList", b =>
                 {
-                    b.Property<string>("BucketListId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("BucketListId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LocationID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BucketListId");
 

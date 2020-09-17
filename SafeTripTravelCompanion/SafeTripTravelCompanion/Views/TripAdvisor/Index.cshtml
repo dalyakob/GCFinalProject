@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<SafeTripTravelCompanion.Models.TripAdvisor.Location.DataLocation>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 
 <h1>Attractions for "@ViewBag.Search"</h1>
 
@@ -14,21 +15,20 @@
                 COVID Danger Rate:
             </th>
             <th>
-                Name: 
+                Name:
             </th>
             <th>
-                Location: 
+                Location:
             </th>
             <th>
                 Photo:
             </th>
-            @if(true)
+            @if (SignInManager.IsSignedIn(User))
             {
                 <th>
                     Add:
                 </th>
             }
-            
         </tr>
     </thead>
     <tbody>
@@ -38,27 +38,32 @@
             {
                 var item = result.result_object;
 
-            <tr>
+        <tr>
 
-                <td>
-                    @Html.ActionLink("Check Rate", "GetCovidRate", "CovidTracking", new {state = item.address_obj.state })
-                </td>
-                <td>
-                    @Html.ActionLink(item.name, "Details", new { id = item.location_id})
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.address)
-                </td>
-                <td>
-                    @{
-                        var img = item.photo.images.thumbnail;
-                    }
-                    <img src=@img.url height=@img.height width=@img.width />
-                </td>
-                <td>
-                    @Html.ActionLink("Add", "Index", "BucketList",new { id = item.location_id })
-                </td>
+            <td>
+                @Html.ActionLink("Check Rate", "GetCovidRate", "CovidTracking", new { state = item.address_obj.state })
+            </td>
+            <td>
+                @Html.ActionLink(item.name, "Details", new { id = item.location_id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @{
+                    var img = item.photo.images.thumbnail;
+                }
+                <img src=@img.url height=@img.height width=@img.width />
+            </td>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <td>
+                        <form asp-controller="BucketList" asp-action="Create" method="post">
+                            <a  asp-route-id="@item.location_id">Add</a>
+                        </form>
+                        
+                    </td>
+                }
             </tr>
             }
         }

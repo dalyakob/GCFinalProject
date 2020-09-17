@@ -10,8 +10,8 @@ using SafeTripTravelCompanion.Data;
 namespace SafeTripTravelCompanion.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200914040534_BucketListMigration")]
-    partial class BucketListMigration
+    [Migration("20200916165325_BucketList")]
+    partial class BucketList
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -223,8 +223,14 @@ namespace SafeTripTravelCompanion.Data.Migrations
 
             modelBuilder.Entity("SafeTripTravelCompanion.Models.DataBase.BucketList", b =>
                 {
-                    b.Property<string>("BucketListId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("BucketListId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LocationID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BucketListId");
 

@@ -8,6 +8,8 @@ namespace SafeTripTravelCompanion.Models.DataBase
 {
     public class BucketList
     {
-        public string BucketListId { get; set; }
+        public int BucketListId { get; set; }
+        [Required]
+        public string LocationID { get; set; }
     }
 }

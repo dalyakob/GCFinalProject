@@ -40,7 +40,8 @@ namespace SafeTripTravelCompanion.Controllers
             }
 
             var bucketList = await _context.BucketLists
-                .FirstOrDefaultAsync(m => m.BucketListId == id);
+                .FirstOrDefaultAsync(m => m.LocationID == id);
+
             if (bucketList == null)
             {
                 return NotFound();
@@ -49,25 +50,17 @@ namespace SafeTripTravelCompanion.Controllers
             return View(bucketList);
         }
 
-        // GET: BucketLists/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         // POST: BucketLists/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string id)
         {
-            var bucketList = new BucketList { BucketListId = id };
+            var bucketList = new BucketList { LocationID = id };
             if (ModelState.IsValid)
             {
                 _context.Add(bucketList);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
@@ -81,10 +74,12 @@ namespace SafeTripTravelCompanion.Controllers
             }
 
             var bucketList = await _context.BucketLists.FindAsync(id);
+
             if (bucketList == null)
             {
                 return NotFound();
             }
+
             return View(bucketList);
         }
 
@@ -95,7 +90,7 @@ namespace SafeTripTravelCompanion.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("BucketListId")] BucketList bucketList)
         {
-            if (id != bucketList.BucketListId)
+            if (id != bucketList.LocationID)
             {
                 return NotFound();
             }
@@ -109,7 +104,7 @@ namespace SafeTripTravelCompanion.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BucketListExists(bucketList.BucketListId))
+                    if (!BucketListExists(bucketList.LocationID))
                     {
                         return NotFound();
                     }
@@ -132,7 +127,7 @@ namespace SafeTripTravelCompanion.Controllers
             }
 
             var bucketList = await _context.BucketLists
-                .FirstOrDefaultAsync(m => m.BucketListId == id);
+                .FirstOrDefaultAsync(m => m.LocationID == id);
             if (bucketList == null)
             {
                 return NotFound();
@@ -154,7 +149,7 @@ namespace SafeTripTravelCompanion.Controllers
 
         private bool BucketListExists(string id)
         {
-            return _context.BucketLists.Any(e => e.BucketListId == id);
+            return _context.BucketLists.Any(e => e.LocationID == id);
         }
     }
 }
