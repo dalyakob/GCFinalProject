@@ -383,3 +383,10 @@ C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCo
 C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
 C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.SafeTripTravelCompanion - Web Deploy.json
+C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\SafeTripTravelCompanion - Web Deploy\mssql1.arm.json
+C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\SafeTripTravelCompanion - Web Deploy\profile.arm.json
+C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Views\Questionaires\Create.cshtml.g.cs
+C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Views\Questionaires\Delete.cshtml.g.cs
+C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Views\Questionaires\Details.cshtml.g.cs
+C:\Users\halo3\Documents\GCFinalProject\SafeTripTravelCompanion\SafeTripTravelCompanion\obj\Debug\netcoreapp3.1\Razor\Views\Questionaires\Edit.cshtml.g.cs

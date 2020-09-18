@@ -60,7 +60,7 @@ namespace SafeTripTravelCompanion.Controllers
             {
                 _context.Add(questionaire);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             return View(questionaire);
         }
