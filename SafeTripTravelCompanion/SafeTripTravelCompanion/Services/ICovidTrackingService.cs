@@ -6,7 +6,6 @@ namespace SafeTripTravelCompanion.Services
     {
         Task<double> GetCovidRate(string state);
         Task<int> FindPopulation(string state);
-
         string ConvertState(string stateAbv);
     }
 }

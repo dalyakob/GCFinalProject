@@ -1,4 +1,5 @@
-﻿using SafeTripTravelCompanion.Models.TripAdvisor.Attraction;
+﻿using SafeTripTravelCompanion.Models.DataBase;
+using SafeTripTravelCompanion.Models.TripAdvisor.Attraction;
 using SafeTripTravelCompanion.Models.TripAdvisor.Location;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace SafeTripTravelCompanion.Services
     {
         Task<RootLocation> GetLocation(string search);
         Task<RootAttraction> Get(int id);
+        Task<IEnumerable<LocationDetails>> GetBucketList(List<BucketList> bucketListID);
     }
 }
