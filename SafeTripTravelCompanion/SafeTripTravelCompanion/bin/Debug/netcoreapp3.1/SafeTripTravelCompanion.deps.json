@@ -10,7 +10,7 @@
       "NETCOREAPP",
       "NETCOREAPP3_1"
     ],
-    "languageVersion": "8.0",
+    "languageVersion": "",
     "platform": "",
     "allowUnsafe": false,
     "warningsAsErrors": false,
@@ -27,6 +27,7 @@
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.7",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.8",
           "Microsoft.AspNetCore.Identity.UI": "3.1.8",
+          "Microsoft.CodeAnalysis.Analyzers": "3.3.0",
           "Microsoft.EntityFrameworkCore.Design": "3.1.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8",
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.8",
@@ -432,10 +433,10 @@
           "ref/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/2.9.4": {},
+      "Microsoft.CodeAnalysis.Analyzers/3.3.0": {},
       "Microsoft.CodeAnalysis.Common/3.3.1": {
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "2.9.4",
+          "Microsoft.CodeAnalysis.Analyzers": "3.3.0",
           "System.Collections.Immutable": "1.7.1",
           "System.Memory": "4.5.3",
           "System.Reflection.Metadata": "1.6.0",
@@ -4194,12 +4195,12 @@
       "path": "microsoft.bcl.hashcode/1.1.0",
       "hashPath": "microsoft.bcl.hashcode.1.1.0.nupkg.sha512"
     },
-    "Microsoft.CodeAnalysis.Analyzers/2.9.4": {
+    "Microsoft.CodeAnalysis.Analyzers/3.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-alIJhS0VUg/7x5AsHEoovh/wRZ0RfCSS7k5pDSqpRLTyuMTtRgj6OJJPRApRhJHOGYYsLakf1hKeXFoDwKwNkg==",
-      "path": "microsoft.codeanalysis.analyzers/2.9.4",
-      "hashPath": "microsoft.codeanalysis.analyzers.2.9.4.nupkg.sha512"
+      "sha512": "sha512-DGStrsethnSDdsjTireE68Vu6kXxyvdbJCQjNJTeT620l9XG9fVVz8UYlR7cXVnG+p0UuXkRyLZRj9tw6tUXlw==",
+      "path": "microsoft.codeanalysis.analyzers/3.3.0",
+      "hashPath": "microsoft.codeanalysis.analyzers.3.3.0.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.Common/3.3.1": {
       "type": "package",

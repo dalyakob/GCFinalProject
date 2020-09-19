@@ -144,10 +144,11 @@
           "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/2.9.4": {
+      "Microsoft.CodeAnalysis.Analyzers/3.3.0": {
         "type": "package",
         "build": {
-          "build/_._": {}
+          "build/Microsoft.CodeAnalysis.Analyzers.props": {},
+          "build/Microsoft.CodeAnalysis.Analyzers.targets": {}
         }
       },
       "Microsoft.CodeAnalysis.Common/3.3.1": {
@@ -3158,14 +3159,15 @@
         "version.txt"
       ]
     },
-    "Microsoft.CodeAnalysis.Analyzers/2.9.4": {
-      "sha512": "alIJhS0VUg/7x5AsHEoovh/wRZ0RfCSS7k5pDSqpRLTyuMTtRgj6OJJPRApRhJHOGYYsLakf1hKeXFoDwKwNkg==",
+    "Microsoft.CodeAnalysis.Analyzers/3.3.0": {
+      "sha512": "DGStrsethnSDdsjTireE68Vu6kXxyvdbJCQjNJTeT620l9XG9fVVz8UYlR7cXVnG+p0UuXkRyLZRj9tw6tUXlw==",
       "type": "package",
-      "path": "microsoft.codeanalysis.analyzers/2.9.4",
+      "path": "microsoft.codeanalysis.analyzers/3.3.0",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "EULA.rtf",
         "ThirdPartyNotices.rtf",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.Analyzers.dll",
         "analyzers/dotnet/cs/Microsoft.CodeAnalysis.CSharp.Analyzers.dll",
@@ -3198,9 +3200,38 @@
         "analyzers/dotnet/vb/zh-Hans/Microsoft.CodeAnalysis.Analyzers.resources.dll",
         "analyzers/dotnet/vb/zh-Hant/Microsoft.CodeAnalysis.Analyzers.resources.dll",
         "build/Microsoft.CodeAnalysis.Analyzers.props",
+        "build/Microsoft.CodeAnalysis.Analyzers.targets",
+        "build/config/RulesVersion2_9_8/.editorconfig",
+        "build/config/RulesVersion3_0_0/.editorconfig",
+        "documentation/Analyzer Configuration.md",
         "documentation/Microsoft.CodeAnalysis.Analyzers.md",
         "documentation/Microsoft.CodeAnalysis.Analyzers.sarif",
-        "microsoft.codeanalysis.analyzers.2.9.4.nupkg.sha512",
+        "editorconfig/AllRulesDefault/.editorconfig",
+        "editorconfig/AllRulesDisabled/.editorconfig",
+        "editorconfig/AllRulesEnabled/.editorconfig",
+        "editorconfig/CorrectnessRulesDefault/.editorconfig",
+        "editorconfig/CorrectnessRulesEnabled/.editorconfig",
+        "editorconfig/DataflowRulesDefault/.editorconfig",
+        "editorconfig/DataflowRulesEnabled/.editorconfig",
+        "editorconfig/LibraryRulesDefault/.editorconfig",
+        "editorconfig/LibraryRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisCompatibilityRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisCompatibilityRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisCorrectnessRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisCorrectnessRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisDesignRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisDesignRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisDocumentationRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisDocumentationRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisLocalizationRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisLocalizationRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisPerformanceRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisPerformanceRulesEnabled/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisReleaseTrackingRulesDefault/.editorconfig",
+        "editorconfig/MicrosoftCodeAnalysisReleaseTrackingRulesEnabled/.editorconfig",
+        "editorconfig/PortedFromFxCopRulesDefault/.editorconfig",
+        "editorconfig/PortedFromFxCopRulesEnabled/.editorconfig",
+        "microsoft.codeanalysis.analyzers.3.3.0.nupkg.sha512",
         "microsoft.codeanalysis.analyzers.nuspec",
         "rulesets/AllRulesDefault.ruleset",
         "rulesets/AllRulesDisabled.ruleset",
@@ -3223,6 +3254,8 @@
         "rulesets/MicrosoftCodeAnalysisLocalizationRulesEnabled.ruleset",
         "rulesets/MicrosoftCodeAnalysisPerformanceRulesDefault.ruleset",
         "rulesets/MicrosoftCodeAnalysisPerformanceRulesEnabled.ruleset",
+        "rulesets/MicrosoftCodeAnalysisReleaseTrackingRulesDefault.ruleset",
+        "rulesets/MicrosoftCodeAnalysisReleaseTrackingRulesEnabled.ruleset",
         "rulesets/PortedFromFxCopRulesDefault.ruleset",
         "rulesets/PortedFromFxCopRulesEnabled.ruleset",
         "tools/install.ps1",
@@ -9213,6 +9246,7 @@
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.7",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.8",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.8",
+      "Microsoft.CodeAnalysis.Analyzers >= 3.3.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.8",
@@ -9222,26 +9256,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\halo3\\.nuget\\packages\\": {}
+    "/Users/kylenedbal/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
+      "projectUniqueName": "/Users/kylenedbal/Projects/GCFinalProject/SafeTripTravelCompanion/SafeTripTravelCompanion/SafeTripTravelCompanion.csproj",
       "projectName": "SafeTripTravelCompanion",
-      "projectPath": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\SafeTripTravelCompanion.csproj",
-      "packagesPath": "C:\\Users\\halo3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\halo3\\Documents\\GCFinalProject\\SafeTripTravelCompanion\\SafeTripTravelCompanion\\obj\\",
+      "projectPath": "/Users/kylenedbal/Projects/GCFinalProject/SafeTripTravelCompanion/SafeTripTravelCompanion/SafeTripTravelCompanion.csproj",
+      "packagesPath": "/Users/kylenedbal/.nuget/packages/",
+      "outputPath": "/Users/kylenedbal/Projects/GCFinalProject/SafeTripTravelCompanion/SafeTripTravelCompanion/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\halo3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/kylenedbal/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9269,6 +9301,12 @@
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
             "version": "[3.1.8, )"
+          },
+          "Microsoft.CodeAnalysis.Analyzers": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[3.3.0, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -9317,7 +9355,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
       }
     }
   }
