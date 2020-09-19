@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SafeTripTravelCompanion.Services;
+using System.Net.Http.Headers;
 
 namespace SafeTripTravelCompanion
 {
@@ -34,29 +35,28 @@ namespace SafeTripTravelCompanion
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddHttpClient<ICovidTrackingService, ApiCovidTrackingService>("CovidTracking", o =>
+            services.AddTransient<ICovidTrackingService, ApiCovidTrackingService>();
+
+
+             services.AddHttpClient("CovidTracking", o =>
             {
                 o.BaseAddress = new Uri("https://api.covidtracking.com/v1/states/");
             });
 
-            services.AddHttpClient<ICovidTrackingService, ApiCovidTrackingService>("Population", o =>
+
+            services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>(o =>
             {
-                o.BaseAddress = new Uri("https://datausa.io/api/");
+                o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/");
+                o.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration["Api:AccessKey"]);
                 //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
             });
 
-            services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>("TA-Location",o =>
-            {
-                o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/locations/");
-                o.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration["Api:AccessKey"]);
-                //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
-            });
-            services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>("TA-Attractions", o =>
-            {
-                o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/attraction/list/");
-                o.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration["Api:AccessKey"]);
-                //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
-            });
+            //services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>("TA-Attractions", o =>
+            //{
+            //    o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/attraction/list/");
+            //    o.DefaultRequestHeaders.Add("x-rapidapi-key", Configuration["Api:AccessKey"]);
+            //    //o.BaseAddress = new Uri(Configuration["Api:BaseAddress"]);
+            //});
 
 
             services.AddControllersWithViews();

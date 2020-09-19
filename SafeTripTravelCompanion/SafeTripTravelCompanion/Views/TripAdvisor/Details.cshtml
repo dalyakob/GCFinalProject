@@ -1,0 +1,70 @@
+﻿@model SafeTripTravelCompanion.Models.TripAdvisor.Attraction.LocationDetails;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            Name
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class="col-sm-4">
+            Location
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.location_string)
+        </dd>
+        <dt class="col-sm-4">
+            Address
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.address)
+        </dd>
+        <dt class="col-sm-4">
+            User Experience Rating
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.rating)
+        </dd>
+        <dt class="col-sm-4">
+            Rank
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ranking)
+        </dd>
+        <dt class="col-sm-4">
+            Description
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt class="col-sm-4">
+            Phone Number
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+        <dt class="col-sm-4">
+            Website URL
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.website)
+        </dd>
+        <dt class="col-sm-4">
+            Photo
+        </dt>
+        <dd class="col-sm-8">
+            @{
+                var img = Model.photo.images.original;
+            }
+            <img src=@img.url height="300" />
+        </dd>
+    </dl>
+</div>

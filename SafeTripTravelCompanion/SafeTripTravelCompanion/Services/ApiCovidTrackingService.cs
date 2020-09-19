@@ -26,24 +26,28 @@ namespace SafeTripTravelCompanion.Services
             if (state.Length > 2)
                 state = ConvertState(state);
 
-            var statePositive = await client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
-
+            var stateData = await client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
+            var lastThirtyDays = stateData.OrderByDescending(x => x.date).Take(30);
+            var totalIncrease = 0;
+            foreach (var item in lastThirtyDays)
+            {
+                totalIncrease += item.positiveIncrease;
+            }
             double population = await FindPopulation(state);
 
-            return (statePositive.ElementAt(0).positive / population); // returning percentage of covid infection 
+            return (totalIncrease / population); // returning percentage of covid infection 
         }
 
         public async Task<int> FindPopulation(string state)
         {
             var client = _clientFactory.CreateClient("Population");
-
             state = state.ToUpper().Trim();
 
             if (state.Length == 2)
                 state = ConvertState(state);
 
             //brings a list of state populations
-            var UsPopulation = await client.GetFromJsonAsync<DataUSA>("data?drilldowns=State&measures=Population&year=latest");
+            var UsPopulation = await client.GetFromJsonAsync<DataUSA>("https://datausa.io/api/data?drilldowns=State&measures=Population&year=latest");
             
             foreach (var item in UsPopulation.data)
             {
