@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -9,7 +7,6 @@ using Microsoft.Extensions.Logging;
 using SafeTripTravelCompanion.Data;
 using SafeTripTravelCompanion.Models;
 using SafeTripTravelCompanion.Services;
-using SQLitePCL;
 
 namespace SafeTripTravelCompanion.Controllers
 {
@@ -37,9 +34,13 @@ namespace SafeTripTravelCompanion.Controllers
 
         public async Task<IActionResult> AuthorizedIndex()
         {
-            var questionareDb = await _context.Questionaire;
-            var profile = await _userManager.Users.Join(_context.Questionaire);
-            return View(_service.QuestionaireSelector();
+            var userId = _userManager.GetUserId(User);
+            var questionaire = _context.Questionaire.Where(x => x.User.Id == userId);
+
+
+
+            return View(questionaire);
+            // return View(_service.QuestionaireSelector());
         }
 
         public IActionResult Privacy()

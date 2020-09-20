@@ -21,29 +21,30 @@ namespace SafeTripTravelCompanion.Services
 
         public List<string> QuestionaireSelector(Questionaire questionaire)
         {
-            var randomizer = new Random(questionaire.Checklist.Count);
+            return null;
+            //var randomizer = new Random(questionaire.Checklist.Count);
 
-            var activeChecklist = new List<string>();
+            //var activeChecklist = new List<string>();
             
-            activeChecklist.Add(questionaire.Checklist[randomizer.Next()]);
+            //activeChecklist.Add(questionaire.Checklist[randomizer.Next()]);
 
-            randomizer = new Random(3);
-            switch (randomizer.Next())
-            {
-                case 0:
-                    activeChecklist.Add(questionaire.Answer1);
-                    break;
-                case 1:
-                    activeChecklist.Add(questionaire.Answer2);
-                    break;
-                case 2:
-                    activeChecklist.Add(questionaire.Answer3);
-                    break;
-                default:
-                    break;
-            }
+            //randomizer = new Random(3);
+            //switch (randomizer.Next())
+            //{
+            //    case 0:
+            //        activeChecklist.Add(questionaire.Answer1);
+            //        break;
+            //    case 1:
+            //        activeChecklist.Add(questionaire.Answer2);
+            //        break;
+            //    case 2:
+            //        activeChecklist.Add(questionaire.Answer3);
+            //        break;
+            //    default:
+            //        break;
+            //}
 
-            return activeChecklist;
+            //return activeChecklist;
         }
     }
 }
