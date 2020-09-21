@@ -17,9 +17,6 @@ namespace SafeTripTravelCompanion.Models.DataBase
         [Required]
         public string Answer3 { get; set; }
 
-        [Required]
-        public IdentityUser User { get; set; }
-
         public bool Museum { get; set; }
 
         public bool Hiking { get; set; }
@@ -32,5 +29,8 @@ namespace SafeTripTravelCompanion.Models.DataBase
         public bool AmusementPark { get; set; }
 
         public bool Concert { get; set; }
+
+        [Required]
+        public IdentityUser User { get; set; }// FK
     }
 }

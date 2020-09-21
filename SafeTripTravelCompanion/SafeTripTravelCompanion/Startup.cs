@@ -37,8 +37,9 @@ namespace SafeTripTravelCompanion
 
             services.AddTransient<ICovidTrackingService, ApiCovidTrackingService>();
 
+            services.AddTransient<IQuestionaireService, QuestionaireService>();
 
-             services.AddHttpClient("CovidTracking", o =>
+            services.AddHttpClient("CovidTracking", o =>
             {
                 o.BaseAddress = new Uri("https://api.covidtracking.com/v1/states/");
             });

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<SafeTripTravelCompanion.Models.TripAdvisor.Location.RootLocation>
+
+<div class="display-4 text-center">
+    Welcome to Safe Trip Travel Companion
+</div>
+<br />
+<div class="text-center font-italic">
+    ~ A travel companion that keeps you safe
+</div>
+<hr />
+<div class="row">
+
+    <!--  asp-controller="TripAdvisor" asp-action="Index"-->
+    <!-- Search form -->
+    <form asp-controller="TripAdvisor" asp-action="Index">
+        <div class="input-group md-form form-sm form-1 pl-0">
+            <div class="input-group-prepend">
+                <span class="input-group-text purple lighten-3" id="basic-text1">
+                    <i class="fas fa-search text-white"
+                       aria-hidden="true"></i>
+                </span>
+            </div>
+            <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search" name="search">
+        </div>
+    </form>
+</div>
+<div class="row">
+    @foreach (var rootLocation in Model)
+    {
+        <div class="col-sm-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            COVID Danger Rate:
+                        </th>
+                        <th>
+                            Name:
+                        </th>
+                        <th>
+                            Location:
+                        </th>
+                        <th>
+                            Photo:
+                        </th>
+                        <th>
+                            Add:
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var result in rootLocation.data)
+                    {
+                        if (result.result_type == "things_to_do" && result.result_object.address_obj.country == "United States")
+                        {
+                            var item = result.result_object;
+
+                            <tr>
+
+                                <td>
+                                    @Html.ActionLink("Check Rate", "GetCovidRate", "CovidTracking", new { state = item.address_obj.state })
+                                </td>
+                                <td>
+                                    @Html.ActionLink(item.name, "Details", new { id = item.location_id })
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.address)
+                                </td>
+                                <td>
+                                    @{
+                                        var img = item.photo.images.thumbnail;
+                                    }
+                                    <img src=@img.url height=@img.height width=@img.width />
+                                </td>
+                                <td>
+                                    <a asp-controller="BucketList" asp-action="Create" asp-route-id="@item.location_id">Add</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

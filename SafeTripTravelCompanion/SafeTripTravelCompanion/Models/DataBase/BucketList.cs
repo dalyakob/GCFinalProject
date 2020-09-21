@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,5 +12,8 @@ namespace SafeTripTravelCompanion.Models.DataBase
         public int BucketListId { get; set; }
         [Required]
         public string LocationID { get; set; }
+
+        [Required]
+        public IdentityUser User { get; set; }
     }
 }
