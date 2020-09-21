@@ -18,24 +18,57 @@ namespace SafeTripTravelCompanion.Services
             _clientFactory = clientFactory;
         }
 
+        public string DepictRate(double covidRate)
+        {
+            covidRate *= 100;
+            if (covidRate <= .15)
+            {
+                return "1 - Travel mostly safe";
+            }
+            else if (covidRate > .15 && covidRate <= .30)
+            {
+                return "2 - Travel has low risk";
+            }
+            else if (covidRate > .30 && covidRate <= .59)
+            {
+                return "3 - Travel has mild risk";
+            }
+            else if (covidRate > .59 && covidRate <= .74)
+            {
+                return "4 - Travel with caution";
+            }
+            else if (covidRate > .74)
+            {
+                return "5 - Travel not recommended";
+            }
+            return "N/A";
+        }
+
         public async Task<double>  GetCovidRate(string state)
         {
-            var client = _clientFactory.CreateClient("CovidTracking");
-            state = state.ToUpper().Trim();
-
-            if (state.Length > 2)
-                state = ConvertState(state);
-
-            var stateData = await client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
-            var lastThirtyDays = stateData.OrderByDescending(x => x.date).Take(30);
-            var totalIncrease = 0;
-            foreach (var item in lastThirtyDays)
+            try
             {
-                totalIncrease += item.positiveIncrease;
-            }
-            double population = await FindPopulation(state);
+                var client = _clientFactory.CreateClient("CovidTracking");
+                state = state.ToUpper().Trim();
 
-            return (totalIncrease / population); // returning percentage of covid infection 
+                if (state.Length > 2)
+                    state = ConvertState(state);
+            
+                var stateData = await client.GetFromJsonAsync<IEnumerable<CovidTracking>>($"{state}/daily.json");
+                var lastThirtyDays = stateData.OrderByDescending(x => x.date).Take(30);
+                var totalIncrease = 0;
+                foreach (var item in lastThirtyDays)
+                {
+                    totalIncrease += item.positiveIncrease;
+                }
+                double population = await FindPopulation(state);
+
+                return (totalIncrease / population); // returning percentage of covid infection 
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
         public async Task<int> FindPopulation(string state)

@@ -1,17 +1,30 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
 
 @model double
 
-<div class="display-1" >
+<div class="display-3">
     Covid Rate in <strong>@ViewBag.State</strong>
 </div>
 
-<hr/>
+<hr />
+    
 
-<div class="display-4">
-    The covid rate in @ViewBag.State is @Model.ToString("P") 
+@if (Model <= 0)
+{
+    <div class="display-5">
+        Data currently unavailable for @ViewBag.State
+    </div>
+}
+else
+{
+<div class="display-5">
+    The covid rate in @ViewBag.State is @Model.ToString("P")
+    <br />
+    <br />
+    <strong>Travel Safety level:</strong> @ViewBag.SafetyLevel
 </div>
+
+}
+
