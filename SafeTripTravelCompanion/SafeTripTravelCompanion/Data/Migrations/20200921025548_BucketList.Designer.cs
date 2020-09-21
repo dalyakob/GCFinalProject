@@ -10,7 +10,7 @@ using SafeTripTravelCompanion.Data;
 namespace SafeTripTravelCompanion.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200916165325_BucketList")]
+    [Migration("20200921025548_BucketList")]
     partial class BucketList
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -232,9 +232,63 @@ namespace SafeTripTravelCompanion.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("BucketListId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("BucketLists");
+                });
+
+            modelBuilder.Entity("SafeTripTravelCompanion.Models.DataBase.Questionaire", b =>
+                {
+                    b.Property<int>("QuestionaireID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("AmusementPark")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Answer1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Answer2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Answer3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Concert")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Fishing")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Hiking")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Museum")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Shopping")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("QuestionaireID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Questionaire");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -282,6 +336,24 @@ namespace SafeTripTravelCompanion.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SafeTripTravelCompanion.Models.DataBase.BucketList", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SafeTripTravelCompanion.Models.DataBase.Questionaire", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

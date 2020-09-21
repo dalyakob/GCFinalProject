@@ -1,16 +1,10 @@
 ﻿@model SafeTripTravelCompanion.Models.DataBase.Questionaire
 
-@{
-    ViewData["Title"] = "Create";
-}
-
-<h1>Create</h1>
-
-<h4>Questionaire</h4>
+<h4>Tell us about your vacation preferences!</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<form asp-action="Create" method="post">
+    <div class="row">
+        <div class="col-md-8">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Answer1" class="control-label">What city would you like to visit?:</label>
@@ -27,17 +21,40 @@
                 <input asp-for="Answer3" class="form-control" />
                 <span asp-validation-for="Answer3" class="text-danger"></span>
             </div>
-
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <input asp-for="Museum" type="checkbox" value="true" class="form-control">
+                <label asp-for="Museum" class="control-label"></label>
+            </div>
+            <div class="form-group">
+                <input asp-for="Hiking" type="checkbox" value="true" class="form-control">
+                <label asp-for="Hiking" class="control-label"></label>
+            </div>
+            <div class="form-group">
+                <input asp-for="Shopping" type="checkbox" value="true" class="form-control">
+                <label asp-for="Shopping" class="control-label"></label>
+            </div>
+            <div class="form-group">
+                <input asp-for="Fishing" type="checkbox" value="true" class="form-control">
+                <label asp-for="Fishing" class="control-label"></label>
+            </div>
+            <div class="form-group">
+                <input asp-for="AmusementPark" type="checkbox" value="true" class="form-control">
+                <label asp-for="AmusementPark" class="control-label"></label>
+            </div>
+            <div class="form-group">
+                <input asp-for="Concert" type="checkbox" value="true" class="form-control">
+                <label asp-for="Concert" class="control-label"></label>
+            </div>
+        </div>
+        <div class="row">
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

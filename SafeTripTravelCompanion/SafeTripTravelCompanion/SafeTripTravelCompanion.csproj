@@ -12,6 +12,12 @@
     <Compile Remove="Data\Migrations\20200915020103_LocationIdReload.Designer.cs" />
     <Compile Remove="Data\Migrations\20200919235304_HajjJason.cs" />
     <Compile Remove="Data\Migrations\20200919235304_HajjJason.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200921024128_bucketListUser.cs" />
+    <Compile Remove="Data\Migrations\20200921024128_bucketListUser.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200921024433_bucketListUser.cs" />
+    <Compile Remove="Data\Migrations\20200921024433_bucketListUser.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200921025204_BucketList.cs" />
+    <Compile Remove="Data\Migrations\20200921025204_BucketList.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

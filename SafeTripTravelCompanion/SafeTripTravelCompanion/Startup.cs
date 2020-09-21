@@ -38,6 +38,7 @@ namespace SafeTripTravelCompanion
             services.AddTransient<ICovidTrackingService, ApiCovidTrackingService>();
             services.AddTransient<IQuestionaireService, QuestionaireService>();
 
+            services.AddTransient<IQuestionaireService, QuestionaireService>();
 
             services.AddHttpClient("CovidTracking", o =>
             {
