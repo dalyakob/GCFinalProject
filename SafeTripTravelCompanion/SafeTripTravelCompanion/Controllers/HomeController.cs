@@ -32,13 +32,10 @@ namespace SafeTripTravelCompanion.Controllers
             return View();
         }
 
-        public async Task<IActionResult> AuthorizedIndex()
+        public IActionResult AuthorizedIndex()
         {
             var userId = _userManager.GetUserId(User);
             var questionaire = _context.Questionaire.Where(x => x.User.Id == userId);
-
-
-
             return View(questionaire);
             // return View(_service.QuestionaireSelector());
         }
