@@ -36,11 +36,12 @@ namespace SafeTripTravelCompanion.Controllers
         {
             var userId = _userManager.GetUserId(User);
             var questionaire = _context.Questionaire.Find(userId);
-
+            
             //            return two searches                   return two random searchable strings from user questionaire
             var model = _tripAdvisorService.GetTwoLocations(_questionaireService.QuestionaireSelector(questionaire));
 
             return View(model);
+
         }
 
         public IActionResult Privacy()
