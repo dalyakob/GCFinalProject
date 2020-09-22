@@ -39,6 +39,16 @@ namespace SafeTripTravelCompanion.Services
             var UrlSearch = HttpUtility.UrlEncode(search);
             return await _client.GetFromJsonAsync<RootLocation>($"locations/search?location_id=1&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query={UrlSearch}");
         }
+        public async Task<IEnumerable<RootLocation>> GetTwoLocations(List<string> search)
+        {
+            var searchList = new List<RootLocation>(); 
+            foreach (var item in search)
+            {
+                var UrlSearch = HttpUtility.UrlEncode(item);
+                searchList.Add(await _client.GetFromJsonAsync<RootLocation>($"locations/search?location_id=1&limit=30&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query={UrlSearch}"));
+            }
+            return searchList;
+        }
 
     }
 }

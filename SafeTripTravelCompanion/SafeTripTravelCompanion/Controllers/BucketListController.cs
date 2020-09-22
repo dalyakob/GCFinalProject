@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafeTripTravelCompanion.Data;
 using SafeTripTravelCompanion.Models.DataBase;
-using SafeTripTravelCompanion.Models.TripAdvisor.Attraction;
-using SafeTripTravelCompanion.Models.TripAdvisor.Location;
 using SafeTripTravelCompanion.Services;
 
 namespace SafeTripTravelCompanion.Controllers
@@ -19,19 +15,19 @@ namespace SafeTripTravelCompanion.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly ITripAdvisorService _tripAdvisorService;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public BucketListController(ApplicationDbContext context, ITripAdvisorService tripAdvisorService)
+        public BucketListController(ApplicationDbContext context, ITripAdvisorService tripAdvisorService, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _tripAdvisorService = tripAdvisorService;
+            _userManager = userManager;
         }
 
         // GET: BucketLists
         public async Task<IActionResult> Index()
         {
-            var bucketList = await _context.BucketLists.ToListAsync();
-
-            var model = await _tripAdvisorService.GetBucketList(bucketList);
+            var model = await _tripAdvisorService.GetBucketList(await _context.BucketLists.ToListAsync());
 
             return View(model);
         }
@@ -61,11 +57,13 @@ namespace SafeTripTravelCompanion.Controllers
             var bucketList = new BucketList { LocationID = id };
             if (ModelState.IsValid)
             {
+                var currentUser = await _userManager.GetUserAsync(User);
+                bucketList.User = currentUser;
                 _context.Add(bucketList);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("AuthorizedIndex");
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("AuthorizedIndex");
         }
 
         // GET: BucketLists/Edit/5

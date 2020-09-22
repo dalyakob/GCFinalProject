@@ -13,5 +13,7 @@ namespace SafeTripTravelCompanion.Services
         Task<RootLocation> GetLocation(string search);
         Task<RootAttraction> Get(int id);
         Task<IEnumerable<LocationDetails>> GetBucketList(List<BucketList> bucketListID);
+        Task<IEnumerable<RootLocation>> GetTwoLocations(List<string> search);
+
     }
 }

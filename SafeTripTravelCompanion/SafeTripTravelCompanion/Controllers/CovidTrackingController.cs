@@ -19,8 +19,10 @@ namespace SafeTripTravelCompanion.Controllers
         // GET: CovidTrackingController
         public async Task<ActionResult> GetCovidRate(string state)
         {
+            var model = await _covidTrackingService.GetCovidRate(state);//gets covid percentage
             ViewBag.State = state;
-            return View(await _covidTrackingService.GetCovidRate(state));
+            ViewBag.SafetyLevel = _covidTrackingService.DepictRate(model);// gets a string safety level for value
+            return View(model);
         }
     }
 }

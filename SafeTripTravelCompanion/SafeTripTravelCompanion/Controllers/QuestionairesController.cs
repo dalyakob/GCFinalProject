@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafeTripTravelCompanion.Data;
 using SafeTripTravelCompanion.Models.DataBase;
@@ -13,16 +11,20 @@ namespace SafeTripTravelCompanion.Controllers
     public class QuestionairesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public QuestionairesController(ApplicationDbContext context)
+        public QuestionairesController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Questionaires
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Questionaire.ToListAsync());
+            var userId = _userManager.GetUserId(User);
+            //await _context.Questionaire.Where(x => x.User.Id == userId).Include(x.User).ToListAsync()
+            return View(await _context.Questionaire.Where(x => x.User.Id == userId).ToListAsync());
         }
 
         // GET: Questionaires/Details/5
@@ -54,13 +56,16 @@ namespace SafeTripTravelCompanion.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("QuestionaireID,Answer1,Answer2,Answer3")] Questionaire questionaire)
+        public async Task<IActionResult> Create([Bind("QuestionaireID,Answer1,Answer2,Answer3,Museum,Hiking,Shopping,Fishing,AmusementPark,Concert")] Questionaire questionaire)
         {
+            var currentUser = await _userManager.GetUserAsync(User);
+            questionaire.User = currentUser;
+
             if (ModelState.IsValid)
             {
-                _context.Add(questionaire);
+                _context.Questionaire.Add(questionaire);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("AuthorizedIndex", "Home");
             }
             return View(questionaire);
         }
@@ -86,7 +91,7 @@ namespace SafeTripTravelCompanion.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("QuestionaireID,Answer1,Answer2,Answer3")] Questionaire questionaire)
+        public async Task<IActionResult> Edit(int id, [Bind("QuestionaireID,Answer1,Answer2,Answer3,Museum,Hiking,Shopping,Fishing,AmusementPark,Concert")] Questionaire questionaire)
         {
             if (id != questionaire.QuestionaireID)
             {

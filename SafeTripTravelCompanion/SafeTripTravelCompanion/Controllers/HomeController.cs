@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SafeTripTravelCompanion.Data;
 using SafeTripTravelCompanion.Models;
-using SQLitePCL;
+using SafeTripTravelCompanion.Services;
 
 namespace SafeTripTravelCompanion.Controllers
 {
@@ -15,16 +14,36 @@ namespace SafeTripTravelCompanion.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly IQuestionaireService _questionaireService;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly ITripAdvisorService _tripAdvisorService;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, ITripAdvisorService tripAdvisorService, IQuestionaireService questionaireService, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _questionaireService = questionaireService;
+            _userManager = userManager;
+            _tripAdvisorService = tripAdvisorService;
         }
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("AuthorizedIndex");
             return View();
+        }
+
+        public async Task<IActionResult> AuthorizedIndex()
+        {
+            var userId = _userManager.GetUserId(User);
+            var questionaire = _context.Questionaire.FirstOrDefault(m => m.User.Id == userId);
+            
+            //            return two searches                   return two random searchable strings from user questionaire
+            var model = await _tripAdvisorService.GetTwoLocations( _questionaireService.QuestionaireSelector(questionaire));
+
+            return View(model);
+
         }
 
         public IActionResult Privacy()

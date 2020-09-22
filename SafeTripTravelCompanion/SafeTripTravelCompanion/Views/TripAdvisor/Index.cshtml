@@ -38,23 +38,27 @@
             {
                 var item = result.result_object;
 
-        <tr>
+            <tr>
 
-            <td>
-                @Html.ActionLink("Check Rate", "GetCovidRate", "CovidTracking", new { state = item.address_obj.state })
-            </td>
-            <td>
-                @Html.ActionLink(item.name, "Details", new { id = item.location_id })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.address)
-            </td>
-            <td>
-                @{
-                    var img = item.photo.images.thumbnail;
-                }
-                <img src=@img.url height=@img.height width=@img.width />
-            </td>
+                <td>
+                    @Html.ActionLink("Check Rate", "GetCovidRate", "CovidTracking", new { state = item.address_obj.state })
+                </td>
+                <td>
+                    @Html.ActionLink(item.name, "Details", new { id = item.location_id })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @{
+                        var img = item.photo.images.thumbnail;
+                        if (img != null)
+                        {
+                            <img src=@img.url height=@img.height width=@img.width />
+                        }
+
+                    }
+                </td>
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <td>

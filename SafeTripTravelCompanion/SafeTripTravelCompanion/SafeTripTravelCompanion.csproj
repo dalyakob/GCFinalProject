@@ -10,6 +10,14 @@
     <Compile Remove="Data\Migrations\20200915004521_AddedLocationID.Designer.cs" />
     <Compile Remove="Data\Migrations\20200915020103_LocationIdReload.cs" />
     <Compile Remove="Data\Migrations\20200915020103_LocationIdReload.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200919235304_HajjJason.cs" />
+    <Compile Remove="Data\Migrations\20200919235304_HajjJason.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200921024128_bucketListUser.cs" />
+    <Compile Remove="Data\Migrations\20200921024128_bucketListUser.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200921024433_bucketListUser.cs" />
+    <Compile Remove="Data\Migrations\20200921024433_bucketListUser.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200921025204_BucketList.cs" />
+    <Compile Remove="Data\Migrations\20200921025204_BucketList.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +36,10 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="System.Net.Http.Json" Version="3.2.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
