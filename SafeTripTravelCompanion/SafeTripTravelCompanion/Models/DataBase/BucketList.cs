@@ -13,7 +13,6 @@ namespace SafeTripTravelCompanion.Models.DataBase
         [Required]
         public string LocationID { get; set; }
 
-        [Required]
         public IdentityUser User { get; set; }
     }
 }

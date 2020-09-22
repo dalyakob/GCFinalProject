@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -28,17 +30,17 @@ namespace SafeTripTravelCompanion.Controllers
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
-                RedirectToAction("AuthorizedIndex");
+                return RedirectToAction("AuthorizedIndex");
             return View();
         }
 
-        public IActionResult AuthorizedIndex()
+        public async Task<IActionResult> AuthorizedIndex()
         {
             var userId = _userManager.GetUserId(User);
-            var questionaire = _context.Questionaire.Find(userId);
+            var questionaire = _context.Questionaire.FirstOrDefault(m => m.User.Id == userId);
             
             //            return two searches                   return two random searchable strings from user questionaire
-            var model = _tripAdvisorService.GetTwoLocations(_questionaireService.QuestionaireSelector(questionaire));
+            var model = await _tripAdvisorService.GetTwoLocations( _questionaireService.QuestionaireSelector(questionaire));
 
             return View(model);
 

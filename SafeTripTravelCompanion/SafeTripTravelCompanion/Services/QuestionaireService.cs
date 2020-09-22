@@ -9,12 +9,10 @@ namespace SafeTripTravelCompanion.Services
 
         public List<string> QuestionaireSelector(Questionaire questionaire)
         {
-            var randomizer = new Random(9);
-
             var activeChecklist = new List<string>();
             while(activeChecklist.Count < 2)
             {
-                switch (randomizer.Next())
+                switch (new Random(9).Next())
                 {
                     case 0:
                         activeChecklist.Add(questionaire.Answer1);

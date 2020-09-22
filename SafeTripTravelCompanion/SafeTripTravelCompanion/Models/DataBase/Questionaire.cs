@@ -30,7 +30,6 @@ namespace SafeTripTravelCompanion.Models.DataBase
 
         public bool Concert { get; set; }
 
-        [Required]
         public IdentityUser User { get; set; }// FK
     }
 }
