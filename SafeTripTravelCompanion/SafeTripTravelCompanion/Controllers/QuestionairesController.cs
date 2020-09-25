@@ -58,11 +58,11 @@ namespace SafeTripTravelCompanion.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("QuestionaireID,Answer1,Answer2,Answer3,Museum,Hiking,Shopping,Fishing,AmusementPark,Concert")] Questionaire questionaire)
         {
+            var currentUser = await _userManager.GetUserAsync(User);
+            questionaire.User = currentUser;
+
             if (ModelState.IsValid)
             {
-                var currentUser = await _userManager.GetUserAsync(User);
-                questionaire.User = currentUser;
-
                 _context.Questionaire.Add(questionaire);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("AuthorizedIndex", "Home");

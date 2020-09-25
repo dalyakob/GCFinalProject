@@ -34,9 +34,7 @@
     <tbody>
         @foreach (var result in Model)
         {
-            if (result.result_type == "things_to_do" && result.result_object.address_obj.country == "United States")
-            {
-                var item = result.result_object;
+            var item = result.result_object;
 
             <tr>
 
@@ -50,14 +48,21 @@
                     @Html.DisplayFor(modelItem => item.address)
                 </td>
                 <td>
-                    @{
+                    @try
+                    {
                         var img = item.photo.images.thumbnail;
                         if (img != null)
                         {
-                            <img src=@img.url height=@img.height width=@img.width />
-                        }
+                            <img src="@img.url" height="50" width="50" />
 
+                        }
                     }
+                    catch
+                    {
+                        <img src="#" height="50" width="50" />
+                    }
+
+                    
                 </td>
                 @if (SignInManager.IsSignedIn(User))
                 {
@@ -66,7 +71,7 @@
                     </td>
                 }
             </tr>
-            }
+            
         }
     </tbody>
 </table>
