@@ -4,8 +4,8 @@
 
 @model double
 
-<div class="display-3">
-    Covid Rate in <strong>@ViewBag.State</strong>
+<div class="display-4">
+    Covid activity within the last month for @ViewBag.State
 </div>
 
 <hr />
@@ -19,12 +19,22 @@
 }
 else
 {
-<div class="display-5">
-    The covid rate in @ViewBag.State is @Model.ToString("P")
+    <h6>
+        Travel Safety level:
+    </h6>
     <br />
+    <div class="text-dark">***@ViewBag.SafetyLevel***</div>
     <br />
-    <strong>Travel Safety level:</strong> @ViewBag.SafetyLevel
-</div>
+    <p>Our calculations for this risk level is completed with a risk level out of <strong>5</strong>, with 5 being the highest rate of covid increase in the last month</p>
+    <hr/>
+    <br />
+    <h6>
+        The covid rate in @ViewBag.State is @Model.ToString("P")
+    </h6>
+    <p>
+        The percentage indicates the state's population with covid positive in the last month divided by the states total population.
+    </p>
+
 
 }
 

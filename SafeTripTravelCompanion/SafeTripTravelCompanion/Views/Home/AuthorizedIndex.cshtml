@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<SafeTripTravelCompanion.Models.TripAdvisor.Location.RootLocation>
 
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <div class="display-4 text-center">
     Welcome to Safe Trip Travel Companion
 </div>
@@ -20,39 +24,22 @@
                        aria-hidden="true"></i>
                 </span>
             </div>
-            <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search" name="search">
+            <input class="form-control form-horizontal" type="text" placeholder="Search" aria-label="Search" name="search">
         </div>
     </form>
 </div>
+<br />
+<div class="h4 font-weight-bold">Recomended for you!</div>
+<hr />
 <div class="row">
-    @foreach (var rootLocation in Model)
+    @if (Model.Any())
     {
-        <div class="col-sm-6">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            COVID Danger Rate:
-                        </th>
-                        <th>
-                            Name:
-                        </th>
-                        <th>
-                            Location:
-                        </th>
-                        <th>
-                            Photo:
-                        </th>
-                        <th>
-                            Add:
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var result in rootLocation.data)
-                    {
-                        if (result.result_type == "things_to_do" && result.result_object.address_obj.country == "United States")
+        @foreach (var rootLocation in Model)
+        {
+            <div class="col-sm-6">
+                <table class="table">
+                    <tbody>
+                        @foreach (var result in rootLocation.data)
                         {
                             var item = result.result_object;
 
@@ -62,25 +49,45 @@
                                     @Html.ActionLink("Check Rate", "GetCovidRate", "CovidTracking", new { state = item.address_obj.state })
                                 </td>
                                 <td>
-                                    @Html.ActionLink(item.name, "Details", new { id = item.location_id })
+                                    @Html.ActionLink(item.name, "Details", "TripAdvisor", new { id = item.location_id })
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.address)
                                 </td>
                                 <td>
                                     @{
-                                        var img = item.photo.images.thumbnail;
+                                        try
+                                        {
+                                            var img = item.photo.images.thumbnail;
+                                            if (img != null)
+                                            {
+                                                <img src="@img.url" height="50" width="50" />
+
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            <img src="#" height="50" width="50" />
+                                        }
+
                                     }
-                                    <img src=@img.url height=@img.height width=@img.width />
                                 </td>
-                                <td>
-                                    <a asp-controller="BucketList" asp-action="Create" asp-route-id="@item.location_id">Add</a>
-                                </td>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <td>
+                                        <a asp-controller="BucketList" asp-action="Create" asp-route-id="@item.location_id">Add</a>
+                                    </td>
+                                }
                             </tr>
                         }
-                    }
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
+        }
     }
+    else
+    {
+        <p>Sorry we couldnt find any recommendations from your questionaire...</p>
+    }
+
 </div>

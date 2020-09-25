@@ -1,55 +1,65 @@
 ﻿<Properties StartupConfiguration="{315D0F1D-4143-454A-97D4-43E37E8EA6DE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SafeTripTravelCompanion/Controllers/CovidTrackingController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SafeTripTravelCompanion/Views/Questionaires/Create.cshtml">
     <Files>
-      <File FileName="SafeTripTravelCompanion/Controllers/HomeController.cs" Line="38" Column="86" />
-      <File FileName="SafeTripTravelCompanion/appsettings.json" />
-      <File FileName="SafeTripTravelCompanion/Controllers/TripAdvisorController.cs" />
+      <File FileName="SafeTripTravelCompanion/Controllers/HomeController.cs" Line="37" Column="1" />
+      <File FileName="SafeTripTravelCompanion/appsettings.json" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Controllers/TripAdvisorController.cs" Line="30" Column="48" />
       <File FileName="SafeTripTravelCompanion/Models/ErrorViewModel.cs" />
       <File FileName="SafeTripTravelCompanion/Services/ApiTripAdvisorService.cs" Line="26" Column="62" />
       <File FileName="SafeTripTravelCompanion/Services/ITripAdvisorService.cs" />
-      <File FileName="SafeTripTravelCompanion/Services/ApiCovidTrackingService.cs" Line="1" Column="1" />
-      <File FileName="SafeTripTravelCompanion/Models/CovidTracking/CovidTracking.cs" />
+      <File FileName="SafeTripTravelCompanion/Services/ApiCovidTrackingService.cs" Line="26" Column="47" />
+      <File FileName="SafeTripTravelCompanion/Models/CovidTracking/CovidTracking.cs" Line="1" Column="1" />
       <File FileName="SafeTripTravelCompanion/Startup.cs" Line="39" Column="76" />
-      <File FileName="SafeTripTravelCompanion/Views/_ViewImports.cshtml" />
-      <File FileName="SafeTripTravelCompanion/Program.cs" />
-      <File FileName="SafeTripTravelCompanion/Services/ICovidTrackingService.cs" Line="1" Column="1" />
-      <File FileName="SafeTripTravelCompanion/Views/CovidTracking/GetCovidRate.cshtml" />
-      <File FileName="SafeTripTravelCompanion/Views/TripAdvisor/Index.cshtml" Line="1" Column="72" />
-      <File FileName="SafeTripTravelCompanion/Data/ApplicationDbContext.cs" />
-      <File FileName="SafeTripTravelCompanion/Views/Home/Index.cshtml" />
+      <File FileName="SafeTripTravelCompanion/Views/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Program.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Services/ICovidTrackingService.cs" Line="16" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/CovidTracking/GetCovidRate.cshtml" Line="12" Column="5" />
+      <File FileName="SafeTripTravelCompanion/Views/TripAdvisor/Index.cshtml" Line="60" Column="22" />
+      <File FileName="SafeTripTravelCompanion/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Home/Index.cshtml" Line="7" Column="94" />
       <File FileName="SafeTripTravelCompanion/wwwroot/css/site.css" />
-      <File FileName="SafeTripTravelCompanion/Controllers/CovidTrackingController.cs" Line="1" Column="1" />
-      <File FileName="SafeTripTravelCompanion/Views/TripAdvisor/Details.cshtml" />
-      <File FileName="SafeTripTravelCompanion/Views/Shared/_Layout.cshtml" />
-      <File FileName="SafeTripTravelCompanion/Views/Shared/_LoginPartial.cshtml" />
-      <File FileName="SafeTripTravelCompanion/Views/Shared/_ValidationScriptsPartial.cshtml" />
+      <File FileName="SafeTripTravelCompanion/Controllers/CovidTrackingController.cs" Line="24" Column="32" />
+      <File FileName="SafeTripTravelCompanion/Views/TripAdvisor/Details.cshtml" Line="2" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Shared/_Layout.cshtml" Line="10" Column="37" />
+      <File FileName="SafeTripTravelCompanion/Views/Shared/_LoginPartial.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Shared/_ValidationScriptsPartial.cshtml" Line="1" Column="1" />
       <File FileName="SafeTripTravelCompanion/Services/QuestionaireService.cs" Line="1" Column="1" />
       <File FileName="SafeTripTravelCompanion/Services/IQuestionaireService.cs" Line="1" Column="1" />
-      <File FileName="SafeTripTravelCompanion/Views/Questionaires/Create.cshtml" Line="32" Column="51" />
+      <File FileName="SafeTripTravelCompanion/Views/Questionaires/Create.cshtml" Line="53" Column="51" />
       <File FileName="SafeTripTravelCompanion/Controllers/QuestionairesController.cs" Line="62" Column="14" />
       <File FileName="SafeTripTravelCompanion/Controllers/BucketListController.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Home/AuthorizedIndex.cshtml" Line="8" Column="7" />
+      <File FileName="SafeTripTravelCompanion/Models/TripAdvisor/Attraction/RootAttraction.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/BucketList/Index.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Models/DataBase/BucketList.cs" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Home/Privacy.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Questionaires/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="SafeTripTravelCompanion/Views/Shared/Error.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SafeTripTravelCompanion" expanded="True">
             <Node name="SafeTripTravelCompanion" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="CovidTrackingController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="CovidTracking" expanded="True" />
+                <Node name="DataBase" expanded="True" />
+                <Node name="DataUSA" expanded="True" />
                 <Node name="TripAdvisor" expanded="True">
                   <Node name="Attraction" expanded="True" />
-                  <Node name="Location" expanded="True" />
                 </Node>
               </Node>
               <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="BucketList" expanded="True" />
                 <Node name="CovidTracking" expanded="True" />
                 <Node name="Home" expanded="True" />
-                <Node name="Questionaires" expanded="True" />
-                <Node name="TripAdvisor" expanded="True" />
+                <Node name="Questionaires" expanded="True">
+                  <Node name="Create.cshtml" selected="True" />
+                </Node>
+                <Node name="Shared" expanded="True" />
               </Node>
             </Node>
           </Node>
