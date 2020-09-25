@@ -36,16 +36,19 @@ namespace SafeTripTravelCompanion
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddTransient<ICovidTrackingService, ApiCovidTrackingService>();
-            services.AddTransient<IQuestionaireService, QuestionaireService>();
 
-            services.AddTransient<IQuestionaireService, QuestionaireService>();
 
             services.AddHttpClient("CovidTracking", o =>
             {
                 o.BaseAddress = new Uri("https://api.covidtracking.com/v1/states/");
             });
 
+            services.AddHttpClient("Population", o =>
+            {
+                o.BaseAddress = new Uri("https://datausa.io/api/data");
+            });
 
+            
             services.AddHttpClient<ITripAdvisorService, ApiTripAdvisorService>(o =>
             {
                 o.BaseAddress = new Uri("https://tripadvisor1.p.rapidapi.com/");

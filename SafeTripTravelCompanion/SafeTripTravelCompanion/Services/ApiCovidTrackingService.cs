@@ -80,7 +80,7 @@ namespace SafeTripTravelCompanion.Services
                 state = ConvertState(state);
 
             //brings a list of state populations
-            var UsPopulation = await client.GetFromJsonAsync<DataUSA>("https://datausa.io/api/data?drilldowns=State&measures=Population&year=latest");
+            var UsPopulation = await client.GetFromJsonAsync<DataUSA>("?drilldowns=State&measures=Population&year=latest");
             
             foreach (var item in UsPopulation.data)
             {

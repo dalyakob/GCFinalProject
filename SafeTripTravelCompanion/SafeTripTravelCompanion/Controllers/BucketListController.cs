@@ -27,97 +27,21 @@ namespace SafeTripTravelCompanion.Controllers
         // GET: BucketLists
         public async Task<IActionResult> Index()
         {
-            var model = await _tripAdvisorService.GetBucketList(await _context.BucketLists.ToListAsync());
+            var userId = _userManager.GetUserId(User);
+            var model = await _tripAdvisorService.GetBucketList(await _context.BucketLists.Where(m => m.User.Id == userId).ToListAsync());
 
             return View(model);
-        }
-
-        // GET: BucketLists/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bucketList = await _context.BucketLists
-                .FirstOrDefaultAsync(m => m.LocationID == id);
-
-            if (bucketList == null)
-            {
-                return NotFound();
-            }
-
-            return View(bucketList);
         }
 
         // POST: BucketLists/Create
         public async Task<IActionResult> Create(string id)
         {
-            var bucketList = new BucketList { LocationID = id };
-            if (ModelState.IsValid)
-            {
-                var currentUser = await _userManager.GetUserAsync(User);
-                bucketList.User = currentUser;
-                _context.Add(bucketList);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("AuthorizedIndex");
-            }
-            return RedirectToAction("AuthorizedIndex");
+            var currentUser = await _userManager.GetUserAsync(User);
+            await _context.AddAsync(new BucketList { LocationID = id, User = currentUser });
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
-        // GET: BucketLists/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bucketList = await _context.BucketLists.FindAsync(id);
-
-            if (bucketList == null)
-            {
-                return NotFound();
-            }
-
-            return View(bucketList);
-        }
-
-        // POST: BucketLists/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BucketListId")] BucketList bucketList)
-        {
-            if (id != bucketList.LocationID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(bucketList);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BucketListExists(bucketList.LocationID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(bucketList);
-        }
 
         // GET: BucketLists/Delete/5
         public async Task<IActionResult> Delete(string id)
@@ -126,9 +50,8 @@ namespace SafeTripTravelCompanion.Controllers
             {
                 return NotFound();
             }
-
-            var bucketList = await _context.BucketLists
-                .FirstOrDefaultAsync(m => m.LocationID == id);
+            var userId = _userManager.GetUserId(User);
+            var bucketList = await _context.BucketLists.FirstOrDefaultAsync(m => m.LocationID == id && m.User.Id == userId);
             if (bucketList == null)
             {
                 return NotFound();
